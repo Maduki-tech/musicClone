@@ -1,0 +1,15 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8080:8080"  # Replace with the port your backend listens on
+
+  frontend:
+    environment:
+      - DATABASE_URL=file:./db.sqlite3
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"  # Replace with the port your frontend app serves on
